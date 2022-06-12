@@ -116,14 +116,14 @@ function setQuestion() {
     question.innerHTML =
       "다음 업적을 이룬 " +
       main.country.name +
-      "의 왕은?<p>ㅤ</p><p>" +
-      getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("</p><p>") +
-      "</p>";
+      "의 왕은?<br>ㅤ</br><br>" +
+      getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("</br><br>") +
+      "</br>";
   } else if (main instanceof Country) {
     answer = main.name;
     question.innerHTML =
-      "다음 설명에 해당하는 나라의 이름은?<p>ㅤ</p><p>" +
-      getRandomElement(main.info, 1).join("</p><p>") +
-      "</p>";
+      "다음 설명에 해당하는 나라의 이름은?<br>ㅤ</br><br>" +
+      getRandomElement(main.info, 1).join("</br><br>") +
+      "</br>";
   }
 }
