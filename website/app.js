@@ -66,21 +66,20 @@ function next(succ = false) {
     ctx.fillStyle = "rgb(0, 168, 107)";
     ctx.fillRect(0, 0, Math.round((canvas.width / 700) * timer), 20);
     question.style.color = "rgb(0, 168, 107)";
-    question.innerHTML = "정답: " + answer + "<br>ㅤ<br/><br>Correct!<br/>";
+    question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Correct!";
   } else {
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, Math.round((canvas.width / 700) * timer), 20);
     question.style.color = "red";
     if (timer >= 700) {
-      question.innerHTML = "정답: " + answer + "<br>ㅤ<br/><br>Time Out!</br>";
+      question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Time Out!";
     } else {
       question.innerHTML =
         "정답: " +
         answer +
         "<br>입력한 답: " +
         input.value +
-        "<br/>" +
-        "<br>ㅤ<br/><br>Incorrect!<br/>";
+        "<br>ㅤ<br>Incorrect!";
     }
   }
   input.value = "";
@@ -116,9 +115,8 @@ function setQuestion() {
     question.innerHTML =
       "다음 업적을 이룬 " +
       main.country.name +
-      "의 왕은?<br>ㅤ<br/><br>" +
-      getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("<br/><br>") +
-      "<br/>";
+      "의 왕은?<br>ㅤ<br>" +
+      getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("<br>");
   } else if (main instanceof Country) {
     answer = main.name;
     question.innerHTML =
