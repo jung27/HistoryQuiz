@@ -42,7 +42,9 @@
   text-align: center;
   margin-top: 10%;
   line-height: 20%;
-  width: auto;
-  padding-right: 10px;
   font-size: 150%;
+}
+
+p{
+  line-height: 20%;
 }
