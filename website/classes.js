@@ -1,6 +1,7 @@
 const humans = [];
 const kings = [];
 const countries = [];
+const wars = [];
 
 const mainTypes = [kings, countries];
 const questionTypes = ["subjective", "objective"];
@@ -28,6 +29,17 @@ class Country {
     this.info = info;
 
     countries.push(this);
+  }
+}
+
+class War{
+  constructor(name, process, winner, loser){
+    this.name = name;
+    this,process = process;
+    this.winner = winner;
+    this,loser = loser;
+    
+    wars.push(this);
   }
 }
 
