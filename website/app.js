@@ -122,8 +122,8 @@ function setQuestion() {
   } else if (main instanceof Country) {
     answer = main.name;
     question.innerHTML =
-      "다음 설명에 해당하는 나라의 이름은?<p>ㅤ</p><p>" +
-      getRandomElement(main.info, 1).join("</p><p>") +
+      "다음 설명에 해당하는 나라의 이름은?<p id='lh'>ㅤ</p><p id='lh'>" +
+      getRandomElement(main.info, 1).join("</p><p id='lh'>") +
       "</p>";
   }
 }
