@@ -42,5 +42,6 @@
   text-align: center;
   margin-top: 10%;
   line-height: 20%;
+  word-break: break-all;
   font-size: 150%;
 }
