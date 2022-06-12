@@ -22,15 +22,23 @@ class King extends Human {
 }
 
 class Country {
-  constructor(name, founding) {
+  constructor(name, founding = null, politics = null) {
     this.name = name;
     this.founding = founding;
+    this.politics = politics;
 
     countries.push(this);
   }
 }
 
-const goguryeo = new Country("고구려", ["졸본에서 건국 후 국내성으로 천도"]);
+const goguryeo = new Country(
+  "고구려",
+  ["졸본에서 건국 후 국내성으로 천도"],
+  [
+    "산악 지형(한과 경쟁, 정복 활동), 국가 운영(5부)",
+    "왕 아래 상가, 고추가 등의 관직, 제가 회의",
+  ]
+);
 const baekjae = new Country("백제", [
   "비류와 온조 등 부여·고구려의 유이민 세력이 한강 하류의 토착 세력과 연합하여 건국(기원전 18)",
   "마한의 소국으로 출발, 위례성에 도읍",
@@ -40,6 +48,16 @@ const shilla = new Country("신라", [
   "진한의 소국인 사로국에서 출발",
   "지리적 단점으로 주변 나라들보다 국가 발전이 늦음",
 ]);
+
+const gaya = new Country("가야", [
+  "금관국이 낙동강 하류(김해)의 변한 지역에 위치하여 연맹 형성",
+]);
+
+const buyeo = new Country(
+  "부여",
+  ["만주 쏭화강 일대(평야 지대)에 위치"],
+  ["마가, 우가, 저가, 구가 등의 관리"]
+);
 
 //고구려 왕
 new King("태조왕", ["옥저를 정복하고, 요동 지방으로 진출을 꾀함"], goguryeo);
