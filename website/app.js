@@ -122,5 +122,10 @@ function setQuestion() {
     question.innerHTML =
       "다음 설명에 해당하는 나라의 이름은?<br>ㅤ<br>" +
       getRandomElement(main.info, 1).join("<br>");
+  } else if (main instanceof Age) {
+    answer = main.name;
+    question.innerHTML =
+      "다음 특징에 해당하는 시대의 이름은?<br>ㅤ<br>" +
+      getRandomElement(main.feature, 1).join("<br>");
   }
 }
