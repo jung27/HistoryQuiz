@@ -2,6 +2,7 @@ const humans = [];
 const kings = [];
 const countries = [];
 const wars = [];
+const ages = [];
 
 const mainTypes = [kings, countries];
 const questionTypes = ["subjective", "objective"];
@@ -42,6 +43,23 @@ class War{
     wars.push(this);
   }
 }
+
+class Age{
+  constructor(name, period, feature){
+    this.name = name;
+    this.period = period;
+    this.feature = feature;
+    
+    ages.push(this);
+  }
+}
+
+new Age("구석기시대", "약 70만년 전", [
+  "도구 사용: 돌과 나무, 동물 뼈 등을 이용, 땐석기 사용",
+  "초기 도구: 찍개, 자르개, 주먹도끼",
+  "후기 도구: 슴베찌르개, 돌화살촉 등 정교한 도구 사용, 흑요석(일본과 교류)",
+  "사회: 빈부 차이나 계급이 없는 평등한 사회",
+])
 
 const goguryeo = new Country("고구려", [
   "졸본에서 건국 후 국내성으로 천도",
