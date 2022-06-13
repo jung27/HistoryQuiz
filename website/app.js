@@ -47,9 +47,9 @@ let animation;
 function update() {
   animation = requestAnimationFrame(update);
   input.focus();
-  if (timer < 700) {
+  if (timer < 1000) {
     ctx.fillStyle = "rgb(0, 168, 107)";
-    ctx.fillRect(0, 0, Math.round((canvas.width / 700) * timer), 20);
+    ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     timer++;
   } else {
     next();
@@ -64,14 +64,14 @@ function next(succ = false) {
   cancelAnimationFrame(animation);
   if (succ) {
     ctx.fillStyle = "rgb(0, 168, 107)";
-    ctx.fillRect(0, 0, Math.round((canvas.width / 700) * timer), 20);
+    ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "rgb(0, 168, 107)";
     question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Correct!";
   } else {
     ctx.fillStyle = "red";
-    ctx.fillRect(0, 0, Math.round((canvas.width / 700) * timer), 20);
+    ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "red";
-    if (timer >= 700) {
+    if (timer >= 1000) {
       question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Time Out!";
     } else {
       question.innerHTML =
@@ -115,17 +115,23 @@ function setQuestion() {
     question.innerHTML =
       "다음 업적을 이룬 " +
       main.country.name +
-      "의 왕은?<br>ㅤ<br>" +
+      "의 왕을 쓰시오.<br>ㅤ<br>" +
       getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("<br>");
   } else if (main instanceof Country) {
     answer = main.name;
     question.innerHTML =
-      "다음 설명에 해당하는 나라의 이름은?<br>ㅤ<br>" +
+      "다음 설명에 해당하는 나라를 쓰시오.<br>ㅤ<br>" +
       getRandomElement(main.info, 1).join("<br>");
   } else if (main instanceof Age) {
+    const type = ["period", "feature"];
     answer = main.name;
-    question.innerHTML =
-      "다음 특징에 해당하는 시대의 이름은?<br>ㅤ<br>" +
-      getRandomElement(main.feature, 1).join("<br>");
+    if (getRandomElement(type) === "feature") {
+      question.innerHTML =
+        "다음 특징에 해당하는 시대를 쓰시오.<br>ㅤ<br>" +
+        getRandomElement(main.feature, 1).join("<br>");
+    } else {
+      question.innerHTML =
+        "다음 시기에 시작된 시대를 쓰시오.<br>ㅤ<br>" + main.period;
+    }
   }
 }
