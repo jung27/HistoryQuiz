@@ -4,7 +4,7 @@ const countries = [];
 const wars = [];
 const ages = [];
 
-const mainTypes = [kings, countries];
+const mainTypes = [kings, countries, ages];
 const questionTypes = ["subjective", "objective"];
 
 class Human {
