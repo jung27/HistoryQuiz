@@ -91,7 +91,7 @@ function next(succ = false) {
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "red";
-    incorrects.innerHTML = "정답 수: " + incorrectsn
+    incorrects.innerHTML = "오답 수: " + incorrectsn;
     if (timer >= 1000) {
       question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Time Out!";
     } else {
