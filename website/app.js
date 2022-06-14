@@ -41,6 +41,7 @@ function onStart() {
   body.appendChild(canvas);
   body.appendChild(question);
   body.appendChild(input);
+  body.appendChild(corrects);
 
   ctx = canvas.getContext("2d");
 
