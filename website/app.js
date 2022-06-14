@@ -22,7 +22,7 @@ function onStart() {
   canvas.height = 20;
   
   info.className = 'info';
-  info.innerHTML = '정답 수: 0 | 오답 수: 0 | 정답률: 0';
+  info.innerHTML = '정답 수: 0 | 오답 수: 0 | 정답률: 0%';
 
   setQuestion();
   question.id = "question";
@@ -102,7 +102,7 @@ function next(succ = false) {
     question.style.color = "black";
     update();
   }, 3000);
-  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+(correctsn)/(correctsn+incorrectsn)*100+"%";
+  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+Math.round((correctsn)/(correctsn+incorrectsn)*100)+"%";
 }
 
 function getRandomElement(array, count = 0) {
