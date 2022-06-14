@@ -7,12 +7,15 @@ let answer;
 let main;
 let corrects;
 let correctsn = 0;
+let incorrects;
+let incorrectsn = 0;
 
 function onStart() {
   document.querySelector(".main").remove();
 
   canvas = document.createElement("canvas");
   corrects = document.createElement("h1");
+  incorrects = document.createElement("h1");
   question = document.createElement("h1");
   input = document.createElement("input");
 
@@ -21,7 +24,13 @@ function onStart() {
   canvas.height = 20;
   
   corrects.id = 'corrects';
+  corrects.className = 'info';
   corrects.innerHTML = '정답 수: 0';
+  
+  
+  incorrects.id = 'incorrects';
+  incorrects.className = 'info';
+  incorrects.innerHTML = '오답 수: 0';
 
   setQuestion();
   question.id = "question";
@@ -41,6 +50,7 @@ function onStart() {
   const body = document.getElementsByTagName("body")[0];
   body.appendChild(canvas);
   body.appendChild(corrects);
+  body.appendChild(incorrects);
   body.appendChild(question);
   body.appendChild(input);
 
@@ -75,11 +85,13 @@ function next(succ = false) {
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "rgb(0, 168, 107)";
     question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Correct!";
-    corrects.innerHTML = "정답 수: " + correctsn
+    corrects.innerHTML = "정답 수: " + correctsn;
   } else {
+    incrrectsn++;
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "red";
+    incorrects.innerHTML = "정답 수: " + incorrectsn
     if (timer >= 1000) {
       question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Time Out!";
     } else {
