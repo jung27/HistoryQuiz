@@ -6,6 +6,7 @@ let input;
 let answer;
 let main;
 let corrects;
+let correctsn = 0;
 
 function onStart() {
   document.querySelector(".main").remove();
@@ -20,7 +21,7 @@ function onStart() {
   canvas.height = 20;
   
   corrects.id = 'corrects';
-  corrects.innerHTML = '맞은 개수를 나타낼 텍스트';
+  corrects.innerHTML = '정답 수: 0';
 
   setQuestion();
   question.id = "question";
@@ -69,10 +70,12 @@ window.addEventListener("resize", () => {
 function next(succ = false) {
   cancelAnimationFrame(animation);
   if (succ) {
+    correctsn++;
     ctx.fillStyle = "rgb(0, 168, 107)";
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "rgb(0, 168, 107)";
     question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Correct!";
+    corrects.innerHTML = "정답 수: " + correctsn
   } else {
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
