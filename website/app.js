@@ -41,8 +41,7 @@ function onStart() {
 
   const body = document.getElementsByTagName("body")[0];
   body.appendChild(canvas);
-  body.appendChild(corrects);
-  body.appendChild(incorrects);
+  body.appendChild(info);
   body.appendChild(question);
   body.appendChild(input);
 
