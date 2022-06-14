@@ -5,17 +5,22 @@ let question;
 let input;
 let answer;
 let main;
+let corrects;
 
 function onStart() {
   document.querySelector(".main").remove();
 
   canvas = document.createElement("canvas");
+  corrects = document.createElement("h1");
   question = document.createElement("h1");
   input = document.createElement("input");
 
   canvas.id = "canvas";
   canvas.width = window.innerWidth - 15;
   canvas.height = 20;
+  
+  corrects.id = 'corrects';
+  corrects.innerHTML = '맞은 개수를 나타낼 텍스트';
 
   setQuestion();
   question.id = "question";
