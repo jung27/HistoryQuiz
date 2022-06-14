@@ -87,7 +87,7 @@ function next(succ = false) {
     question.innerHTML = "정답: " + answer + "<br>ㅤ<br>Correct!";
     corrects.innerHTML = "정답 수: " + correctsn;
   } else {
-    incrrectsn++;
+    incorrectsn++;
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
     question.style.color = "red";
