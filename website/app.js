@@ -24,7 +24,7 @@ function onStart() {
   input.id = "input";
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      if (input.value === answer) {
+      if (input.value.replace(' ', '') === answer) {
         next(true);
       } else {
         next();
