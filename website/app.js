@@ -22,7 +22,7 @@ function onStart() {
   canvas.height = 20;
   
   info.className = 'info';
-  info.innerHTML = '정답 수: 0 | 오답 수: 0';
+  info.innerHTML = '정답 수: 0 | 오답 수: 0 | 정답률: 0';
 
   setQuestion();
   question.id = "question";
