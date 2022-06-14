@@ -70,7 +70,6 @@ window.addEventListener("resize", () => {
 
 function next(succ = false) {
   cancelAnimationFrame(animation);
-  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn;
   if (succ) {
     correctsn++;
     ctx.fillStyle = "rgb(0, 168, 107)";
@@ -103,6 +102,7 @@ function next(succ = false) {
     question.style.color = "black";
     update();
   }, 3000);
+  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+(correctsn)/(correctsn+incorrectsn);
 }
 
 function getRandomElement(array, count = 0) {
