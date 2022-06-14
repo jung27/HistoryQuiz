@@ -102,7 +102,7 @@ function next(succ = false) {
     question.style.color = "black";
     update();
   }, 3000);
-  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+(correctsn)/(correctsn+incorrectsn);
+  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+(correctsn)/(correctsn+incorrectsn)*100+"%";
 }
 
 function getRandomElement(array, count = 0) {
