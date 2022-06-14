@@ -39,9 +39,9 @@ function onStart() {
 
   const body = document.getElementsByTagName("body")[0];
   body.appendChild(canvas);
+  body.appendChild(corrects);
   body.appendChild(question);
   body.appendChild(input);
-  body.appendChild(corrects);
 
   ctx = canvas.getContext("2d");
 
