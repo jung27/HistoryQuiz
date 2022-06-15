@@ -130,7 +130,7 @@ function setQuestion() {
   main = getRandomElement(getRandomElement(mainTypes));
   if (main instanceof King) {
     const type = ["name", "pick"];
-    if (type === "name") {
+    if (getRandomElement(type) === "name") {
       answer = main.name;
       question.innerHTML =
         "다음 업적을 이룬 " +
