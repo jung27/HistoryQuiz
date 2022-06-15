@@ -20,9 +20,9 @@ function onStart() {
   canvas.id = "canvas";
   canvas.width = window.innerWidth - 15;
   canvas.height = 20;
-  
-  info.className = 'info';
-  info.innerHTML = '정답 수: 0 | 오답 수: 0 | 정답률: 0%';
+
+  info.className = "info";
+  info.innerHTML = "정답 수: 0 | 오답 수: 0 | 정답률: 0%";
 
   setQuestion();
   question.id = "question";
@@ -31,7 +31,7 @@ function onStart() {
   input.id = "input";
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      if (input.value.replace(' ', '') === answer) {
+      if (input.value.replace(" ", "") === answer + "") {
         next(true);
       } else {
         next();
@@ -70,6 +70,7 @@ window.addEventListener("resize", () => {
 
 function next(succ = false) {
   cancelAnimationFrame(animation);
+  input.style.marginTop = "5%";
   if (succ) {
     correctsn++;
     ctx.fillStyle = "rgb(0, 168, 107)";
@@ -102,7 +103,14 @@ function next(succ = false) {
     question.style.color = "black";
     update();
   }, 3000);
-  info.innerHTML = "정답 수: "+correctsn+" | 오답 수: "+incorrectsn+" | 정답률: "+Math.round((correctsn)/(correctsn+incorrectsn)*100)+"%";
+  info.innerHTML =
+    "정답 수: " +
+    correctsn +
+    " | 오답 수: " +
+    incorrectsn +
+    " | 정답률: " +
+    Math.round((correctsn / (correctsn + incorrectsn)) * 100) +
+    "%";
 }
 
 function getRandomElement(array, count = 0) {
@@ -122,12 +130,37 @@ function getRandomElement(array, count = 0) {
 function setQuestion() {
   main = getRandomElement(getRandomElement(mainTypes));
   if (main instanceof King) {
-    answer = main.name;
-    question.innerHTML =
-      "다음 업적을 이룬 " +
-      main.country.name +
-      "의 왕을 쓰시오.<br>ㅤ<br>" +
-      getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("<br>");
+    const type = ["name", "pick"];
+    if (type === "name") {
+      answer = main.name;
+      question.innerHTML =
+        "다음 업적을 이룬 " +
+        main.country.name +
+        "의 왕을 쓰시오.<br>ㅤ<br>" +
+        getRandomElement(main.ach, Math.ceil(Math.random() * 3)).join("<br>");
+    } else {
+      const choices = [];
+      for (let i = 0; i < 5; i++) {
+        let con = getRandomElement(kings);
+        while (con.name == main.name) {
+          con = getRandomElement(kings);
+        }
+        let willpush = getRandomElement(con.ach);
+        while (choices.includes(willpush)) {
+          willpush = getRandomElement(con.ach);
+        }
+        choices.push(i + 1 + ". " + willpush);
+      }
+      answer = Math.floor(Math.random() * 5) + 1;
+      choices[answer - 1] = answer + ". " + getRandomElement(main.ach);
+      question.innerHTML =
+        "다음 중 " +
+        main.name +
+        "에 대한 설명으로 옳은 것을 고르시오.<br>ㅤ<br><div class='left'>" +
+        choices.join("<br>") +
+        "</div>";
+      input.style.marginTop = "15%";
+    }
   } else if (main instanceof Country) {
     answer = main.name;
     question.innerHTML =

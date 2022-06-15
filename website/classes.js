@@ -4,7 +4,7 @@ const countries = [];
 const wars = [];
 const ages = [];
 
-const mainTypes = [kings, kings, kings, countries, countries, ages];
+const mainTypes = [kings, kings, kings, kings, countries, countries, ages];
 const questionTypes = ["subjective", "objective"];
 
 class Human {
@@ -33,23 +33,23 @@ class Country {
   }
 }
 
-class War{
-  constructor(name, process, winner, loser){
+class War {
+  constructor(name, process, winner, loser) {
     this.name = name;
-    this,process = process;
+    this, (process = process);
     this.winner = winner;
-    this,loser = loser;
-    
+    this, (loser = loser);
+
     wars.push(this);
   }
 }
 
-class Age{
-  constructor(name, period, feature){
+class Age {
+  constructor(name, period, feature) {
     this.name = name;
     this.period = period;
     this.feature = feature;
-    
+
     ages.push(this);
   }
 }
@@ -63,7 +63,7 @@ new Age("구석기시대", "약 70만년 전", [
   "생활: 불을 이용하여 음식을 익혀 먹음.",
   "생활: 동굴이나 바위 그늘, 강가에 막집을 짓고 생활함.",
   "예술: 고래와 물고기 모양 조각(무리의 번성과 풍요로운 식량 획득 기원)",
-])
+]);
 
 new Age("신석기시대", "빙하 이후 기원전 8000년 경", [
   "도구: 작고 날랜 동물을 잡기위해 정교한 간석기 제작, 작살, 낙싯바늘, 그물추 제작(물고기잡이와 조개 채집), 가락바퀴나 뼈바늘(옷, 그물 제작), 갈판과 갈돌",
@@ -76,8 +76,7 @@ new Age("신석기시대", "빙하 이후 기원전 8000년 경", [
   "문화: 애니미즘(태양·물·바위와 같은 자연물에 영혼이 있다고 믿음.)",
   "문화: 토테미즘(특정 동식물을 숭배함.)",
   "문화: 조상 숭배(씨족의 우두머리를 중심으로 영혼이나 조상 숭배 의식을 치름.)",
-])
-
+]);
 
 const goguryeo = new Country("고구려", [
   "졸본에서 건국 후 국내성으로 천도",
@@ -104,14 +103,31 @@ const gaya = new Country("가야", [
 const buyeo = new Country("부여", [
   "만주 쏭화강 일대(평야 지대)에 위치",
   "마가, 우가, 저가, 구가 등의 관리",
-  "제천 행사(영고), 농경과 목축 발달"
+  "제천 행사(영고), 농경과 목축 발달",
 ]);
 
 const okjeo = new Country("옥저", ["혼인 풍습(민며느리제)", "가족 공동묘"]);
 
-const dongye = new Country("동예", ["책화", "제천 행사(무천)", "특산물(단궁, 과하마, 반어피)"]);
+const dongye = new Country("동예", [
+  "책화",
+  "제천 행사(무천)",
+  "특산물(단궁, 과하마, 반어피)",
+]);
 
-const samhan = new Country("삼한", ["위치: 마한(경기도, 충청도, 전라도), 진한(경상도 낙동강 동쪽), 변한(낙동강 하류)", "목지국의 지배자가 이 나라를 대표함", "천군과 소도(재정 분라 사회)", "벼농사 발달, 제천 행사(5월 10월)", "철을 생산하여 낙랑과 왜에 수출(화폐로 사용)","마한은 백제, 진한은 신라에 통합, 변한은 가야로 발전"]);
+const samhan = new Country("삼한", [
+  "위치: 마한(경기도, 충청도, 전라도), 진한(경상도 낙동강 동쪽), 변한(낙동강 하류)",
+  "목지국의 지배자가 이 나라를 대표함",
+  "천군과 소도(재정 분라 사회)",
+  "벼농사 발달, 제천 행사(5월 10월)",
+  "철을 생산하여 낙랑과 왜에 수출(화폐로 사용)",
+  "마한은 백제, 진한은 신라에 통합, 변한은 가야로 발전",
+]);
+
+const balhae = new Country("발해", [
+  "고구려 멸망 후 고구려 왕과 귀족의 중국 이주, 요서의 영주 지역에 고구려 유민과 거란족, 말갈족 거주",
+  "돌궐의 성장과 거란족의 반란 → 대조영이 고구려 유민과 말갈족을 이끌고 영주 탈출",
+  "추격해 온 당군을 물리치고 말갈족과 함께 발해 건국 → 남북국 형세",
+]);
 
 //고구려 왕
 new King("태조왕", ["옥저를 정복하고, 요동 지방으로 진출을 꾀함"], goguryeo);
@@ -238,6 +254,64 @@ new King(
     "불교 장려: 황룡사 건립, 국가의 정신적 통합 모색",
   ],
   shilla
+);
+
+new King(
+  "무열왕",
+  [
+    "김춘추가 김유신의 도움으로 즉위",
+    "유교 정치 이념을 수용하여 통치 체제의 기초를 마련",
+    "집사부(왕의 비서 기관)을 독립시키고 장관인 시중의 역할 강화",
+    "귀족 회의의 기능 축소, 상대등의 권한이 약화",
+  ],
+  shilla
+);
+
+new King(
+  "문무왕",
+  ["삼국 통일 달성", "친당적인 진골 귀족 축출", "궁궐 확장(동궁), 월지 건설"],
+  shilla
+);
+
+new King(
+  "신문왕",
+  [
+    "김흠돌의 난 제압 → 통치 제도의 개혁을 통한 왕권 강화",
+    "유교 정치 이념을 수용하여 통치 체제의 기초를 마련",
+    "관료전 지급, 녹읍을 혁파하고 녹봉을 지급",
+    "국학 설림(국립 교육 기관 6두품 관료들이 행정 실무 담당 및 국왕에 조언)",
+    "10여 관청을 설치하고 행정 업무를 효율적으로 나눔",
+    "중앙 통치 제도로 9주 5소경",
+    "군사 제도로 9서당 10정",
+  ],
+  shilla
+);
+
+//발해왕
+new King(
+  "무왕",
+  [
+    "'인안' 연호 사용",
+    "동북쪽의 말갈족 복속",
+    "당과의 대립(장문휴의 등주 공격)",
+    "일본과 친선 관계(당, 신라 견제)",
+  ],
+  balhae
+);
+
+new King(
+  "문왕",
+  ["당과 우호 관계를 회복하고 당 문물 도임", "수도를 상경성으로 옮김"],
+  balhae
+);
+
+new King(
+  "선왕",
+  [
+    "문왕 사후의 내분과 혼란을 수습하여 정치적 안정",
+    "최대 영역 확보 → 전성기('해동성국'이라 불림)",
+  ],
+  balhae
 );
 
 kings.forEach((element) => {

@@ -49,3 +49,10 @@
   font-size: 100%;
   text-align: left;
 }
+
+.left {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+}
