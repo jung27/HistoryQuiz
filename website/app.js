@@ -70,7 +70,6 @@ window.addEventListener("resize", () => {
 
 function next(succ = false) {
   cancelAnimationFrame(animation);
-  input.style.marginTop = "5%";
   if (succ) {
     correctsn++;
     ctx.fillStyle = "rgb(0, 168, 107)";
@@ -156,10 +155,8 @@ function setQuestion() {
       question.innerHTML =
         "다음 중 " +
         main.name +
-        "에 대한 설명으로 옳은 것을 고르시오.<br>ㅤ<br><div class='left'>" +
-        choices.join("<br>") +
-        "</div>";
-      input.style.marginTop = "15%";
+        "에 대한 설명으로 옳은 것을 고르시오.<br>ㅤ<br>" +
+        choices.join("<br>");
     }
   } else if (main instanceof Country) {
     answer = main.name;
