@@ -19,7 +19,7 @@ function onStart() {
 
   canvas.id = "canvas";
   canvas.width = window.innerWidth - 15;
-  canvas.height = 20;
+  canvas.height = 10;
 
   info.className = "info";
   info.innerHTML = "정답 수: 0 | 오답 수: 0 | 정답률: 0%";
@@ -57,7 +57,7 @@ function update() {
   input.focus();
   if (timer < 1000) {
     ctx.fillStyle = "rgb(0, 168, 107)";
-    ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 20);
+    ctx.fillRect(0, 0, Math.round((canvas.width / 1000) * timer), 10);
     timer++;
   } else {
     next();
